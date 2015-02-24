@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Checks the current operation system and distribution (if applicable), and
+# Checks the current operating system and distribution (if applicable), and
 # executes the appropriate setup script.
 
 # Ensure this script was not sourced
@@ -31,7 +31,7 @@ fi
 # Require power to be connected
 if ! hasACConnected; then
     printf "\nAC adapter must be connected to continue executing script!\n"
-    #exit 1
+    exit 1
 fi
 
 # Require an active internet connection
@@ -73,7 +73,7 @@ function genesisMain() {
 if genesisMain; then
     printf "\nReboot required to complete setup!\n"
     read -p "Press any key to reboot..."
-    #reboot
+    reboot
 else
     printf "\nSetup Aborted! Failed to execute setup script!\n"
 fi
