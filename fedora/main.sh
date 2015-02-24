@@ -58,36 +58,36 @@ function fedoraMain() {
     ret_code=$(($ret_code|$?))
 
     # Perform setup for yum
-    #source ""$genesis_fedora_scripts"/yum-setup.sh"
-    #ret_code=$(($ret_code|$?))
+    source ""$genesis_fedora_scripts"/yum-setup.sh"
+    ret_code=$(($ret_code|$?))
 
     # Update packages
-    #runCommand "yum -y update" "Performing Update..."
-    #ret_code=$(($ret_code|$?))
+    runCommand "yum -y update" "Performing Update..."
+    ret_code=$(($ret_code|$?))
 
     # Setup graphics
-    #source ""$genesis_fedora_scripts"/nvidia-setup.sh"
-    #ret_code=$(($ret_code|$?))
+    source ""$genesis_fedora_scripts"/nvidia-setup.sh"
+    ret_code=$(($ret_code|$?))
 
     # Fix Fedora's font rendering
-    #source ""$genesis_fedora_scripts"/fix-fonts.sh"
-    #ret_code=$(($ret_code|$?))
+    source ""$genesis_fedora_scripts"/fix-fonts.sh"
+    ret_code=$(($ret_code|$?))
 
     # Install packages
-    #source ""$genesis_fedora_scripts"/install-packages.sh"
-    #ret_code=$(($ret_code|$?))
+    source ""$genesis_fedora_scripts"/install-packages.sh"
+    ret_code=$(($ret_code|$?))
 
     # Install third party programs
-    #source "$genesis_fedora_scripts/custom-installs.sh"
-    #ret_code=$(($ret_code|$?))
+    source "$genesis_fedora_scripts/custom-installs.sh"
+    ret_code=$(($ret_code|$?))
 
     # Configure Gnome settings and extensions
-    #source ""$genesis_fedora_scripts"/gnome-setup.sh"
-    #ret_code=$(($ret_code|$?))
+    source ""$genesis_fedora_scripts"/gnome-setup.sh"
+    ret_code=$(($ret_code|$?))
 
     # Perform various system tweaks
-    #source ""$genesis_fedora_scripts"/system-tweaks.sh"
-    #ret_code=$(($ret_code|$?))
+    source ""$genesis_fedora_scripts"/system-tweaks.sh"
+    ret_code=$(($ret_code|$?))
 
     # Perform additional setup actions
     #source ""$genesis_fedora_scripts"/extra.sh"
