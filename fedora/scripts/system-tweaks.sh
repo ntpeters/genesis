@@ -33,6 +33,9 @@ function systemTweaksMain() {
 
     printf "\n### Begin System Tweaks ###\n"
 
+    configureSELinux
+    ret_code=$(($ret_code|$?))
+
     update_fstab
     ret_code=$(($ret_code|$?))
     setIOSchedulers

@@ -476,5 +476,14 @@ function enablePSD() {
     return $ret_code
 }
 
+# Update SELinux configuration
+function configureSELinux() {
+    # Set SELinux to load in permissive mode
+    sed -i 's/SELINUX=.*$/SELINUX=permissive/g' /etc/selinux/config
+
+    # Put SELinux into permissive mode now
+    setenforce 0
+}
+
 # Denotes that this file has been sourced
 genesis_fedora_system_funcs=0
