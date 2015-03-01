@@ -40,9 +40,6 @@ function require_distribution() {
     local current_platform=`lsb_release -si`
     current_platform="${current_platform,,}"
 
-    echo Current: "$current_platform"
-    echo Require: "$required_platform"
-
     if [[ "$current_platform" != *"$required_platform"* ]]; then
         echo "This script is intended for "$required_platform" only!"
         exit 1

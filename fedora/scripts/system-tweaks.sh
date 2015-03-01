@@ -59,6 +59,8 @@ function systemTweaksMain() {
     installFromRepo "preload"
     ret_code=$(($ret_code|$?))
 
+    enableService "libvirtd"
+
     printf "### End System Tweaks ###\n"
 
     return $ret_code

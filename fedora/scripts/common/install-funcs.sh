@@ -274,7 +274,7 @@ function installRemoteZip() {
     local unpack_cmd="unzip -o -q "$dl_path" -d "$install_path""
 
     mkdir -p "$install_path"
-    installRemoteArchive "$name" "$dl_link" "$dl_path" "$install_path" "$unpack_cmd"
+    installRemoteArchive "$name" "$dl_link" "$dl_path" "$unpack_cmd"
     return $?
 }
 
@@ -291,10 +291,10 @@ function installRemoteTarball() {
     local tar_flags=${4:-""}
     local filename="${dl_link##*/}"
     local dl_path="/tmp/"$filename""
-    local unpack_cmd="tar -zxf "$dl_path" -C"$install_path""
+    local unpack_cmd="tar -jxf "$dl_path" -C"$install_path" "$tar_flags""
 
     mkdir -p "$install_path"
-    installRemoteArchive "$name" "$dl_link" "$dl_path" "$install_path" "$unpack_cmd"
+    installRemoteArchive "$name" "$dl_link" "$dl_path" "$unpack_cmd"
     return $?
 }
 

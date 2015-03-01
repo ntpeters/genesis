@@ -124,6 +124,11 @@ function update_fstab() {
             disk_options="$ssd_options"
         fi
 
+        # Convert all tabs in 'fstab' to spaces
+        local untabify="expand "$fstab_tmp""
+        eval "$untabify" "$save_fstab"
+        ret_code=$(($ret_code|$?))
+
         # Get the device name (ie. sda or sdb)
         local device=`\echo "${disk##*/}"`
         # Iterate over list of partitions
@@ -137,9 +142,9 @@ function update_fstab() {
 
                 local apply_options=""
                 while read fstab_line; do
-                    local line_mount=`echo "$fstab_line" | cut --delimiter=$'\t' --fields=2`
+                    local line_mount=`echo "$fstab_line" | tr --squeeze-repeats ' ' | cut --delimiter=' ' --fields=2`
                     if [[ "$line_mount" = "$mount_point" ]]; then
-                        local existing_options=`echo "$fstab_line" | cut --delimiter=$'\t' --fields=4`
+                        local existing_options=`echo "$fstab_line" | tr --squeeze-repeats ' ' | cut --delimiter=' ' --fields=4`
                         for option in $(echo "$disk_options" | tr "," " "); do
                             if [[ "$option" != "" && "$existing_options" != *"$option"* ]]; then
                                 apply_options=""$apply_options","$option""

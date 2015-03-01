@@ -165,8 +165,8 @@ function install-inconsolata-powerline() {
     local ret_code=0
 
     local name="Inconsolata-g for Powerline"
-    local dl_link="http://raw.githubusercontent.com/aaronjensen/vimfiles/master/fonts/Inconsolata-g-Powerline.ttf"
-    local dl_path="/usr/share/fonts/Inconsolata-g-Powerline-ttf"
+    local dl_link="https://github.com/powerline/fonts/raw/master/Inconsolata-g/Inconsolata-g%20for%20Powerline.otf"
+    local dl_path="/usr/share/fonts/Inconsolata-g-Powerline.otf"
 
     download "$dl_link" "$dl_path" "$name" ""
     ret_code=$(($ret_code|$?))
@@ -231,7 +231,7 @@ function install-paper-icon-theme() {
 # Installs the Bridge cursor theme
 function install-bridge-cursor-theme() {
     local name="Bridge Cursor Theme"
-    local dl_link="http://gnome-look.com/CONTENT/content-files/164587-bridge.tar.gz"
+    local dl_link="http://gnome-look.org/CONTENT/content-files/164587-bridge.tar.gz"
     local install_path="/usr/share/icons/bridge"
 
     installRemoteTarball "$name" "$dl_link" "$install_path" "--strip-components=1"

@@ -23,10 +23,10 @@ function enableGnomeExtension() {
     local extensionName="$2"
 
     # Get list of enabled extensions
-    local extensionList=$(su $username -c "gsettings get org.gnome.shell enabled-extensions" | sed 's/^.\(.*\).$/\1/')
+    local extensionList=$(su $username -c'gsettings get org.gnome.shell enabled-extensions | sed 's/^.\(.*\).$/\1/'')
 
     #Check if extension is already enabled
-    local extensionEnabled=$(echo $extensionList | grep $(extensionUUID))
+    local extensionEnabled=$(echo $extensionList | grep "$extensionUUID")
 
     # Enable extension if needed
     if [ "$extensionEnabled" = "" ]; then

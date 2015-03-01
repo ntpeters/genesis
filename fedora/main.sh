@@ -62,7 +62,9 @@ function fedoraMain() {
     ret_code=$(($ret_code|$?))
 
     # Update packages
-    runCommand "yum -y update" "Performing Update..."
+    #runCommand "yum -y update" "Performing Update..."
+    echo "Performing system update..."
+    yum -y update
     ret_code=$(($ret_code|$?))
 
     # Setup graphics

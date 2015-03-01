@@ -33,8 +33,7 @@ function installPackagesMain() {
     printf "\n### Begin Package Installation ###\n"
 
     if [ -f "$package_manifest" ]; then
-        while read line
-        do
+        while read line; do
             installFromRepo "$line"
             ret_code=$(($ret_code|$?))
         done < "$package_manifest"
